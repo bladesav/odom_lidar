@@ -1,0 +1,5 @@
+# Occupancy grid and particle filter exercises.
+
+In question #1, an occupancy grid map was constructed using LIDAR scans from a perfect ground truth localization. Initially, the probability of all cells being occupied is set to 0. At each time step, cells in the scan field of view are determined by ray-tracing, and their log-odds occupancy likelihood is updated via an alpha-beta heuristic (alpha is added to the log-odds likelihood of the last cell in range, while beta is subtracted from all other cells). Once this is completed over the entire scan for a single time step, the log odds map is converted into an update for the probability grid map.
+
+In question #2, a particle filter localization method was implemented using the occupancy map constructed from the prior question. At each timestep, for each of the 200 predicted particles, ray tracing was used at the two extremes of the scan field to find the divergence between the desired and predicted posterior (range from the particle to the occupied cell), which was then used to update the particle resampling weights via a Gaussian PDF.
